@@ -1,9 +1,58 @@
----
-layout: default
----
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<div class="home">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 
-  <h1 class="page-heading">Coming soon...</h1>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <div class="valign-wrapper" style="height:100%">
+        <div class="row">
+            <div id="main" class="col s12">
+                <h1 id="building" class="center-align">Dumping Brain</h1>
+            </div>
+        </div>
+    </div>
 
-</div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+
+    <script type="text/javascript">
+
+        var count = 0;
+        var countId = "building";
+
+        function building() {
+
+            if(count == 10) {
+                $('#main').append ('<h1 id="mal" class="center-align">Malfunction</h1>');
+                countId = "mal";
+            } else if (count == 20) {
+                $('#main').append ('<h1 id="empty" class="center-align">No content yet</h1>');
+                countId = "empty";
+            } else  {
+                $('#' + countId).append (".");
+            }
+
+            if (count <= 30) {
+                count++;
+                setTimeout(building, 1000);
+            }
+        }
+
+        $(document).ready( function () {
+            building();
+        });
+
+    </script>
+</body>
+<footer>
+    
+</footer>
